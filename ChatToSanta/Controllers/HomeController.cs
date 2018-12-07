@@ -54,7 +54,13 @@ namespace ChatToSanta.Controllers
                 case "listreindeer":
                     return "Well... I know I have Rudolph, are there others?";
 
-                        case "askforgift":
+                case "doyoulike":
+                    return "I do, a lot!";
+
+                case "dothereindeerlike":
+                    return "They do, very much!";
+
+                case "askforgift":
                     return "I'm sure the elves can make you one of those!";
 
                 default:
