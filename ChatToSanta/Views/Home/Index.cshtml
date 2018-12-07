@@ -5,14 +5,18 @@
 
 <div class="row">
     <h1>CHAT TO SANTA!</h1>
-    <div class="col-md-4 alert-warning">
-        @using(@Html.BeginForm())
-        {
-            @Html.TextBoxFor(x => x.Message, new { @Class= "text-info"})
-            <input type="submit" value="Send Message" class="btn btn-default" />
-        }
+    <div class="col-md-4 alert">
+        <h4>What do you want to say to Santa?</h4>
+        <p>
+            @using (@Html.BeginForm())
+            {
+                @Html.TextBoxFor(x => x.Message, new { @Class = "text-info" })
+                <input type="submit" value="Send Message" class="btn btn-default" />
+            }
+        </p>
     </div>
     <div class="col-md-4 alert-info">        
+        <h4>Santa Says:</h4>
         <p>@Model.Answer</p>
     </div>
     <div class="col-md-4">
