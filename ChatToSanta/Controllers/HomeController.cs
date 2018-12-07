@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,8 +11,21 @@ namespace ChatToSanta.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
+            using (var client = new HttpClient())
+            {
+                                
+                var endpoint = ConfigurationManager.AppSettings["Endpoint"];
+                var query = "Hello Santa";
+
+                var endpointUri = endpoint + HttpUtility.UrlEncode(query);
+                var response = await client.GetAsync(endpointUri);
+
+                var strResponseContent = await response.Content.ReadAsStringAsync();
+                ViewBag.Message = strResponseContent;
+            }
+
             return View();
         }
 
