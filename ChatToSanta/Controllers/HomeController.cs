@@ -14,16 +14,22 @@ namespace ChatToSanta.Controllers
 {
     public class HomeController : Controller
     {
-        public async Task<ActionResult> Index()
+        [HttpGet]
+        public ActionResult Index()
         {
-            var model = new IndexModel();
+            return View(new IndexModel());
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Index(IndexModel model)
+        {
+            model = new IndexModel();
             using (var client = new HttpClient())
             {
-                                
-                var endpoint = ConfigurationManager.AppSettings["Endpoint"];
-                var query = "Hello Santa";
 
-                var endpointUri = endpoint + HttpUtility.UrlEncode(query);
+                var endpoint = ConfigurationManager.AppSettings["Endpoint"];                
+
+                var endpointUri = endpoint + HttpUtility.UrlEncode(model.Message);
                 var response = await client.GetAsync(endpointUri);
 
                 var strResponseContent = await response.Content.ReadAsStringAsync();
