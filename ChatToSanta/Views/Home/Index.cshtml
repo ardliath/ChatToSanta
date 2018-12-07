@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ChatToSanta.Models.IndexModel
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -10,7 +11,12 @@
 
 <div class="row">
     <h1>CHAT TO SANTA!</h1>
-    <div class="col-md-4">
+    <div class="col-md-4 alert-warning">
+        using(@Html.BeginForm())
+        {
+            @Html.TextBoxFor(x => x.Message);
+            <input type="submit" />
+        }
         <h2>Getting started</h2>
         <p>
             ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
@@ -19,8 +25,8 @@
         </p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
-    <div class="col-md-4">        
-        <p>@ViewBag.Message</p>
+    <div class="col-md-4 alert-info">        
+        <p>@Model.Answer</p>
     </div>
     <div class="col-md-4">
         <img alt="PictureOfSanta" src="~/Content/SantaImage.jpg" />

@@ -1,4 +1,5 @@
-﻿using ChatToSanta.Responses;
+﻿using ChatToSanta.Models;
+using ChatToSanta.Responses;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace ChatToSanta.Controllers
     {
         public async Task<ActionResult> Index()
         {
+            var model = new IndexModel();
             using (var client = new HttpClient())
             {
                                 
@@ -27,10 +29,10 @@ namespace ChatToSanta.Controllers
                 var strResponseContent = await response.Content.ReadAsStringAsync();
                 var responseObj = JsonConvert.DeserializeObject<Response>(strResponseContent);
 
-                ViewBag.Message = responseObj.TopScoringIntent.IntentString;
+                model.Answer = responseObj.TopScoringIntent.IntentString;
             }
 
-            return View();
+            return View(model);
         }
 
         public ActionResult About()
