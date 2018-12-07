@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ChatToSanta.Responses;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -23,7 +25,9 @@ namespace ChatToSanta.Controllers
                 var response = await client.GetAsync(endpointUri);
 
                 var strResponseContent = await response.Content.ReadAsStringAsync();
-                ViewBag.Message = strResponseContent;
+                var responseObj = JsonConvert.DeserializeObject<Response>(strResponseContent);
+
+                ViewBag.Message = responseObj.TopScoringIntent.IntentString;
             }
 
             return View();
