@@ -25,8 +25,7 @@ namespace ChatToSanta.Controllers
 
         [HttpPost]
         public async Task<ActionResult> Index(IndexModel model)
-        {
-            model = new IndexModel();
+        {            
             using (var client = new HttpClient())
             {
 
@@ -38,6 +37,7 @@ namespace ChatToSanta.Controllers
                 var strResponseContent = await response.Content.ReadAsStringAsync();
                 var responseObj = JsonConvert.DeserializeObject<Response>(strResponseContent);
 
+                model = new IndexModel();
                 model.Answer = responseObj.TopScoringIntent.IntentString;
             }
 
