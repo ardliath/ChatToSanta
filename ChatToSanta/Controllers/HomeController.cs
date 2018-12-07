@@ -19,7 +19,7 @@ namespace ChatToSanta.Controllers
         {
             return View(new IndexModel
             {
-                Message = "Ho ho ho!"
+                Answer = "Ho ho ho!"
             });
         }
 
