@@ -13,5 +13,8 @@ namespace ChatToSanta.Responses
 
         [JsonProperty(PropertyName = "topScoringIntent")]
         public Intent TopScoringIntent { get; set; }
+
+        [JsonProperty(PropertyName = "intents")]
+        public Intent[] Intents { get; set; }
     }
 }
