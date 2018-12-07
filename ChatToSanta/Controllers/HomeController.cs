@@ -17,7 +17,10 @@ namespace ChatToSanta.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View(new IndexModel());
+            return View(new IndexModel
+            {
+                Message = "Ho ho ho!"
+            });
         }
 
         [HttpPost]
