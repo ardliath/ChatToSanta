@@ -38,10 +38,28 @@ namespace ChatToSanta.Controllers
                 var responseObj = JsonConvert.DeserializeObject<Response>(strResponseContent);
 
                 model = new IndexModel();
-                model.Answer = responseObj.TopScoringIntent.IntentString;
+                model.Answer = GetResponseFromIntent(responseObj.TopScoringIntent.IntentString);
             }
 
             return View(model);
+        }
+
+        private string GetResponseFromIntent(string intentString)
+        {
+            switch(intentString.ToLower())
+            {
+                case "sayhello";
+                    return "Hello!";
+
+                case "listreindeer":
+                    return "Well... I know I have Rudolph, are there others?";
+
+                        case "askforgift":
+                    return "I'm sure the elves can make you one of those!";
+
+                default:
+                    return "Ho ho ho!";
+            }
         }
 
         public ActionResult About()
