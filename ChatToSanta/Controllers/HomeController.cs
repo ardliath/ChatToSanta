@@ -48,7 +48,7 @@ namespace ChatToSanta.Controllers
         {
             switch(intentString.ToLower())
             {
-                case "sayhello";
+                case "sayhello":
                     return "Hello!";
 
                 case "listreindeer":
