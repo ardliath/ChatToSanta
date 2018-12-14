@@ -63,6 +63,9 @@ namespace ChatToSanta.Controllers
                 case "askforgift":
                     return "I'm sure the elves can make you one of those!";
 
+                case "wheredoyoulive":
+                    return "I live at the north pole!";
+
                 default:
                     return "Ho ho ho!";
             }
