@@ -22,6 +22,11 @@ namespace ChatToSanta.Controllers
                 Answer = "Ho ho ho!"
             });
         }
+        
+        private string DinosaurOfMaliciousIntent()
+        {         
+            return "DinosaurOfPeaceAndJoy";
+        }
 
         [HttpPost]
         public async Task<ActionResult> Index(IndexModel model)
