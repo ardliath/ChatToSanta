@@ -22,6 +22,22 @@ namespace ChatToSanta.Controllers
                 Answer = "Ho ho ho!"
             });
         }
+        
+        private string DinosaurOfMaliciousIntent()
+        {
+                            __.--'~~~~~`--.
+         ..       __.    .-~               ~-.
+         ((\     /   `}.~                     `.
+          \\\  .{     }               /     \   \
+      (\   \\~~       }              |       }   \
+       \`.-~ -@~     }  ,-,.         |       )    \
+       (___     ) _}  (    :        |    / /      `._
+        `----._-~.     _\ \ |_       \   / /-.__     `._
+               ~~----~~  \ \| ~~--~~~(  + /     ~-._    ~-._
+                         /  /         \  \          ~--.,___~_-_.
+                      __/  /          _\  )
+                    .<___.'         .<___/  
+        }
 
         [HttpPost]
         public async Task<ActionResult> Index(IndexModel model)
